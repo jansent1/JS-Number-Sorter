@@ -9,6 +9,17 @@ const sortInputArray = (event) => {
   const inputValues = [
     ...document.getElementsByClassName("values-dropdown"),
   ].map((dropdown) => Number(dropdown.value));
+  // Show the inputted array in the Output section without sorting the array:
+  updateUI(inputValues);
+};
+
+// Function to update the display with the sorted numbers. The empty array is set as a "fallback value" because the function doesn't return anything:
+const updateUI = (array = []) => {
+  // iterate over the Array:
+  array.forEach((num, i) => {
+    const outputValueNode = document.getElementById(`output-value-${i}`);
+    outputValueNode.innerText = num;
+  });
 };
 
 // EventListeners:
